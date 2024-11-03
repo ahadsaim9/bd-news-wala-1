@@ -39,34 +39,24 @@ const RightSideNav = () => {
       {/*  section---->2 */}
       <section>
         <h1 className="text-2xl font-semibold my-5">Find Us On</h1>
-        <div className=" my-2 items-center mx-auto border rounded-md w-full text-center py-2 font-bold shadow-md ">
-          <div className=" w-full items-center pl-4 flex">
-            <div className="flex cursor-pointer">
-              <span className="pr-1 pt-1 text-blue-800">
-                <FaFacebook></FaFacebook>
-              </span>
-              <p> Facebook</p>
-            </div>
+        <div className=" my-6 items-center mx-auto border rounded-md w-full text-center  font-bold flex flex-col gap-1">
+          <div className=" shadow-md w-full items-center justify-center py-2 flex cursor-pointer">
+            <span className="pr-1 pt-1 text-blue-800">
+              <FaFacebook></FaFacebook>
+            </span>
+            <p> Facebook</p>
           </div>
-        </div>
-        <div className=" my-4 border rounded-md w-full text-center py-2 font-bold shadow-md  ">
-          <div className=" w-full items-center pl-4 flex">
-            <div className="flex cursor-pointer">
-              <span className="pr-1 pt-1 text-blue-500 ">
-                <FaTwitter></FaTwitter>
-              </span>
-              <p className="">Twitter</p>
-            </div>
+          <div className="shadow-md w-full items-center justify-center py-2 flex cursor-pointer">
+            <span className="pr-1 pt-1 text-blue-500 ">
+              <FaTwitter></FaTwitter>
+            </span>
+            <p className="">Twitter</p>
           </div>
-        </div>
-        <div className=" my-4 border rounded-md w-full text-center py-2 font-bold shadow-md  ">
-          <div className=" w-full items-center pl-4  flex">
-            <div className="flex cursor-pointer">
-              <span className="pr-1 pt-1 text-pink-500">
-                <FaInstagram></FaInstagram>
-              </span>
-              <p className="">Instagram</p>
-            </div>
+          <div className="shadow-md w-full items-center justify-center py-2 flex cursor-pointer">
+            <span className="pr-1 pt-1 text-pink-500">
+              <FaInstagram></FaInstagram>
+            </span>
+            <p className="">Instagram</p>
           </div>
         </div>
       </section>
