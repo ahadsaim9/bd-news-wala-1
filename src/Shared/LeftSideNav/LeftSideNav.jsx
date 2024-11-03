@@ -5,39 +5,29 @@ import photo_2 from "../../assets/2.png";
 import photo_3 from "../../assets/3.png";
 
 import { CiCalendarDate } from "react-icons/ci";
+import { useEffect, useState } from "react";
 const LeftSideNav = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("/public/categories.json")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
+
   return (
     <div>
       {/* section----->1 */}
       <section>
         <h1 className="text-2xl font-semibold py-3 text-center bg-[#F3F3F3] rounded-md">
-          National News
+          All Categories
         </h1>
         <div className="flex flex-col gap-4 pr-2 pl-10 py-5 text-[#9F9F9F]">
-          <Link to={"/"}>
-            <p>Breaking News</p>
-          </Link>
-          <Link to={"/"}>
-            <p>Regular News</p>
-          </Link>
-          <Link to={"/"}>
-            <p>International News</p>
-          </Link>
-          <Link to={"/"}>
-            <p>Sports</p>
-          </Link>
-          <Link to={"/"}>
-            <p>Entertainment</p>
-          </Link>
-          <Link to={"/"}>
-            <p>Culture</p>
-          </Link>
-          <Link to={"/"}>
-            <p>Arts</p>
-          </Link>
-          <Link to={"/"}>
-            <p>All News</p>
-          </Link>
+          {categories.map((category) => (
+            <Link to={`/category/${category.id}`} key={category.id}>
+              {category.name}
+            </Link>
+          ))}
         </div>
       </section>
       {/* section------->2 */}
