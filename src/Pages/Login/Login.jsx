@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
+
     <section className="w-full mx-auto h-svh py-28   bg-[#F3F3F3]">
+  
       <div className="mx-auto w-2/4 px-16 p-8 rounded-md bg-white ">
+      
         <h3 className=" text-2xl  my-6 text-center font-semibold">
           Login your account
         </h3>
