@@ -9,19 +9,28 @@ import backgroundImg from "../../assets/bg.png";
 import qZone1 from "../../assets/qZone1.png";
 import qZone2 from "../../assets/qZone2.png";
 import qZone3 from "../../assets/qZone3.png";
+import { useContext } from "react";
+import { AuthContext } from "../../components/AuthProvider/AuthProvider";
+
 const RightSideNav = () => {
+  const { loginWithGoogle } = useContext(AuthContext);
+
   return (
-    <div>
+    <div className="">
       {/*  section---->1 */}
       <section>
-        <h1 className="text-2xl font-semibold mb-3">Login With</h1>
-        <div className=" my-2 items-center mx-auto border rounded-md w-full text-center py-2 font-bold shadow-md ">
+        <h1 className="text-2xl font-semibold mb-3 text-center">Login With</h1>
+        <div
+          onClick={loginWithGoogle}
+          aria-label="Login with Google"
+          className=" my-2 items-center mx-auto border rounded-md w-full text-center py-2 font-bold shadow-md "
+        >
           <div className=" w-full items-center justify-center flex">
             <div className="flex cursor-pointer">
               <span className="pr-1 pt-1">
                 <FaGoogle></FaGoogle>
               </span>
-              <p> Login With Google</p>
+              <button> Login With Google</button>
             </div>
           </div>
         </div>
@@ -65,7 +74,6 @@ const RightSideNav = () => {
         <h1 className="text-2xl font-semibold py-4">Q-Zone</h1>
         <div className="flex flex-col gap-4">
           <img src={qZone1} className="w-full h-auto" alt="" />
-
           <img src={qZone2} className="w-full h-auto" alt="" />
           <img src={qZone3} className="w-full h-auto" alt="" />
         </div>

@@ -3,10 +3,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Root/Root";
 import ErrorElement from "../ErrorElement/ErrorElement";
 import Home from "../../Pages/Home/Home";
-import About from "../../Pages/About/About";
-import Career from "../../Pages/Career/Career";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Home/Register/Register";
+import News from "../../Pages/News/News";
+import PrivateRoute from "./PrivateRoute";
+import NewsCard from "../../Pages/Home/NewsCard";
 
 const router = createBrowserRouter([
   {
@@ -17,15 +18,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("/news.json"),
       },
       {
         path: "/about",
-        element: <About></About>,
+        element: <NewsCard></NewsCard>,
       },
       {
-        path: "/career",
-        element: <Career></Career>,
+        path: "/news/:id",
+        element: (
+          <PrivateRoute>
+            <News></News>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/news.json"),
       },
+
       {
         path: "/login",
         element: <Login></Login>,

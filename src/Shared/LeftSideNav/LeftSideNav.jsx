@@ -22,7 +22,7 @@ const LeftSideNav = () => {
         <h1 className="text-2xl font-semibold py-3 text-center bg-[#F3F3F3] rounded-md">
           All Categories
         </h1>
-        <div className="flex flex-col gap-4 pr-2 pl-10 py-5 text-[#9F9F9F]">
+        <div className="flex flex-col gap-4 pr-2 pl-10 py-5 text-gray-600">
           {categories.map((category) => (
             <Link to={`/category/${category.id}`} key={category.id}>
               {category.name}

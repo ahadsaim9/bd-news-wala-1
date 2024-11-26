@@ -1,7 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
 import userLogo from "../../../src/assets/user.png";
 import "./Header/NavBar.css";
+import { useContext } from "react";
+import { AuthContext } from "../../components/AuthProvider/AuthProvider";
+import Swal from "sweetalert";
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        // alert("Log-Out successful.");
+        Swal("Log-Out...!", "successfully", "success");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.error(error);
+      });
+  };
+
   const navLinks = (
     <>
       <li>
@@ -14,11 +31,7 @@ const NavBar = () => {
           About
         </NavLink>
       </li>
-      <li>
-        <NavLink activeClassName="active" to={"/career"}>
-          Career
-        </NavLink>
-      </li>
+
       <li>
         <NavLink activeClassName="active" to={"/register"}>
           Register
@@ -27,7 +40,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <nav className="navbar bg-white my-6">
+    <nav className="navbar  h-20">
       <div className="navbar-start">
         <div className="dropdown">
           <ul
@@ -38,7 +51,7 @@ const NavBar = () => {
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
@@ -51,14 +64,24 @@ const NavBar = () => {
             <img alt="Tailwind CSS Navbar component" src={userLogo} />
           </div>
         </div>
-        <Link to={"/login"}>
+        {user ? (
           <button
+            onClick={handleSignOut}
             className="bg-black rounded-sm font-bold px-5 py-1 mr-6
       text-white"
           >
-            Login
+            SignOut
           </button>
-        </Link>
+        ) : (
+          <Link to={"/login"}>
+            <button
+              className="bg-black rounded-sm font-bold px-5 py-1 mr-6
+      text-white"
+            >
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </nav>
   );
