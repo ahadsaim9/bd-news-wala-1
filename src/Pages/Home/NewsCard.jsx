@@ -7,7 +7,7 @@ const NewsCard = ({ news }) => {
   const { _id, author, title, thumbnail_url, total_view, details } = news;
   const { img, name, published_date } = author;
   return (
-    <div className="w-full h-auto my-4 flex flex-col gap-6 bg-slate-50">
+    <div className="w-full h-auto my-4 flex flex-col gap-6 bg-slate-50 ">
       {/* section >>>> 1 >box=1 */}
       <div className="flex items-center bg-[#F3F3F3] px-5 rounded-md justify-between">
         <section className="p-3 pl-2 flex gap-3 ">

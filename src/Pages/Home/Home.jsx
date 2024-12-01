@@ -23,10 +23,12 @@ const Home = () => {
           <LeftSideNav></LeftSideNav>
         </div>
         {/* Main Home Page. */}
-        <div className="md:col-span-2 flex  flex-col gap-6 ">
-          {news.map((a_news) => (
-            <NewsCard key={a_news._id} news={a_news}></NewsCard>
-          ))}
+        <div className="overflow-auto max-h-screen md:col-span-2">
+          <div className="flex overflow-hidden flex-col gap-6 ">
+            {news.map((a_news) => (
+              <NewsCard key={a_news._id} news={a_news}></NewsCard>
+            ))}
+          </div>
         </div>
         {/* Right Side NavBar */}
         <div className="md:mt-4">
