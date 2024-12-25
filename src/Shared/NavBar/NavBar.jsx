@@ -22,18 +22,33 @@ const NavBar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink activeClassName="active" to={"/"}>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? " text-orange-500 " : ""
+          }
+          to={"/"}
+        >
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink activeClassName="active" to={"/about"}>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? " text-orange-500 " : ""
+          }
+          to={"/about"}
+        >
           About
         </NavLink>
       </li>
 
       <li>
-        <NavLink activeClassName="active" to={"/register"}>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? " text-orange-500 " : ""
+          }
+          to={"/register"}
+        >
           Register
         </NavLink>
       </li>
